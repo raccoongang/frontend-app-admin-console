@@ -46,11 +46,13 @@ const AssignRoleWizardPage = () => {
       pageSubtitle=""
       actions={[]}
     >
-      <AssignRoleWizard
-        onClose={() => navigate(destination)}
-        initialUsers={initialUsers}
-        roles={rolesAssignable}
-      />
+      <div className="bg-light-200 py-4">
+        <AssignRoleWizard
+          onClose={() => navigate(destination)}
+          initialUsers={initialUsers}
+          roles={rolesAssignable}
+        />
+      </div>
     </AuthZLayout>
   );
 };

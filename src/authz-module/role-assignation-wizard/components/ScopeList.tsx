@@ -57,7 +57,7 @@ const ScopeList = ({
   }, [hasNextPage, isFetchingNextPage, isError, fetchNextPage]);
 
   return (
-    <div className="scope-list border rounded p-3 bg-light-100 overflow-auto">
+    <div className="scope-list border rounded p-3 overflow-auto">
       {isLoading ? (
         <div className="d-flex justify-content-center p-4">
           <Spinner animation="border" screenReaderText={intl.formatMessage(messages['wizard.step2.scopeList.loading'])} />

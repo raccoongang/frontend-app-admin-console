@@ -63,7 +63,7 @@ const ErrorPage = ({ error, resetErrorBoundary }: FallbackProps) => {
     resetErrorBoundary();
   };
   return (
-    <Container className="d-flex flex-column align-items-center justify-content-center min-vh-100 bg-light-200">
+    <Container className="d-flex flex-column align-items-center justify-content-center min-vh-100">
       <h1 className="display-4 text-primary-200">{statusCode}</h1>
       <h1 className="text-primary">{intl.formatMessage(title)}</h1>
       <p>{intl.formatMessage(description)}</p>

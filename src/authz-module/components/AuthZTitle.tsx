@@ -42,7 +42,7 @@ const AuthZTitle = ({
 }: AuthZTitleProps) => {
   const isDesktop = useMediaQuery({ minWidth: breakpoints.large.minWidth });
   return (
-    <Container className="p-5 bg-light-100">
+    <Container className="p-4">
       <Breadcrumb
         linkAs={Link}
         links={navLinks}

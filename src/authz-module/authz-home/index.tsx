@@ -1,5 +1,5 @@
 import { useIntl } from '@edx/frontend-platform/i18n';
-import { Tab, Tabs } from '@openedx/paragon';
+import { Container, Tab, Tabs } from '@openedx/paragon';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import TeamMembersTable from '@src/authz-module/team-members/TeamMembersTable';
 import AddRoleButton from '@src/authz-module/components/AddRoleButton';
@@ -30,18 +30,21 @@ const AuthzHome = () => {
           [<AddRoleButton key="add-role-button" />]
         }
       >
-        <Tabs
-          variant="tabs"
-          defaultActiveKey={hash ? 'permissionsRoles' : 'team'}
-          className="bg-light-100 px-5"
-        >
-          <Tab eventKey="team" title={intl.formatMessage(messages['authz.tabs.team'])} className="p-5 bg-light-200">
-            <TeamMembersTable presetScope={presetScope} />
-          </Tab>
-          <Tab id="libraries-permissions-roles-tab" eventKey="permissionsRoles" title={intl.formatMessage(messages['authz.tabs.permissionsRoles'])}>
-            <RolesPermissions />
-          </Tab>
-        </Tabs>
+        <div className="bg-light-200 py-4">
+          <Container>
+            <Tabs
+              variant="tabs"
+              defaultActiveKey={hash ? 'permissionsRoles' : 'team'}
+            >
+              <Tab eventKey="team" title={intl.formatMessage(messages['authz.tabs.team'])} className="pt-4">
+                <TeamMembersTable presetScope={presetScope} />
+              </Tab>
+              <Tab id="libraries-permissions-roles-tab" eventKey="permissionsRoles" title={intl.formatMessage(messages['authz.tabs.permissionsRoles'])}>
+                <RolesPermissions />
+              </Tab>
+            </Tabs>
+          </Container>
+        </div>
       </AuthZLayout>
     </div>
   );

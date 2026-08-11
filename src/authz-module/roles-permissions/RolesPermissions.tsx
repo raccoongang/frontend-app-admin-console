@@ -43,8 +43,8 @@ const RolesPermissions = () => {
   }, [intl]);
 
   return (
-    <Container className="p-5">
-      <Container className="pb-5">
+    <Container className="py-4">
+      <Container className="pb-5 px-0">
         <ButtonGroup size="lg" className="mb-2">
           <Button
             onClick={() => setActive('courses')}
