@@ -18,3 +18,7 @@ Fixed:
 ======
 * Data table block no longer grows by ~380px when a filter dropdown is opened, and wide tables
   scroll inside the table container instead of the page (VERA-29)
+
+Removed:
+========
+* codecov CI action — the fork has no codecov project, so the step failed every run (VERA-29)
