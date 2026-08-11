@@ -1,5 +1,27 @@
 @use "@openedx/paragon/styles/css/core/custom-media-breakpoints" as paragonCustomMediaBreakpoints;
 
+/*
+  Every page renders through AuthZLayout, so stretching it to the viewport lets the page
+  background fill whatever space short content leaves below it. Only the background may
+  grow: Paragon gives `.container-fluid` `flex: 1 1 auto` from a stylesheet loaded after
+  this bundle, so the title has to be pinned by a selector of at least equal specificity —
+  otherwise it absorbs part of the free space and the background's top edge moves.
+*/
+.authz-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  > :not(.bg-light-200) {
+    flex-grow: 0;
+  }
+
+  > .bg-light-200 {
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
+}
+
 .authz-module {
   --height-action-divider: 30px;
 
@@ -15,23 +37,24 @@
     background-color: var(--pgn-color-primary-200);
   }
 /*
-  This is a workaround to fix the height of the table when the dropdown menu is open,
-  to prevent the table from collapsing and hiding the dropdown menu.
-  The min-height value is set to 700px based on the height of the table and the dropdown menu,
-  but it can be adjusted if needed.
+  Paragon gives .pgn__data-table-layout-wrapper `overflow-x: scroll` below the xl
+  breakpoint, which makes `overflow-y` compute to `auto` and clips open dropdown menus.
+  Horizontal scrolling for wide tables is already handled by .pgn__data-table-container,
+  so the wrapper has nothing to clip. Keeping it visible replaces the previous
+  `min-height: 700px` workaround, which grew the block by ~380px on every open filter.
 */
-  .pgn__data-table-layout-wrapper:has(.dropdown-menu.show) {
-    min-height: 700px;
+  .pgn__data-table-layout-wrapper {
+    overflow: visible;
+  }
+
+  .pgn__data-table-layout-main {
+    min-width: 0;
   }
 
   hr {
     border-right: var(--pgn-size-border-width) solid var(--pgn-color-border);
     height: var(--height-action-divider);
     width: 0;
-  }
-
-  .tab-content {
-    background-color: var(--pgn-color-light-200);
   }
 
   .collapsible-card {

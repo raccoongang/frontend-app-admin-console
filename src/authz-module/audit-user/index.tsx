@@ -259,33 +259,35 @@ const AuditUserPage = () => {
           ]
         }
       >
-        <Container className="bg-light-200 p-5">
-          <DataTable
-            isPaginated
-            isFilterable
-            isSortable
-            manualPagination
-            data={rowsWithPermissions}
-            manualFilters
-            manualSortBy
-            fetchData={fetchData}
-            itemCount={count}
-            pageCount={pageCount}
-            initialState={{ pageSize: TABLE_DEFAULT_PAGE_SIZE }}
-            additionalColumns={additionalColumns}
-            columns={columns}
-            isLoading={isLoadingUserAssignments}
-            isExpandable
-            renderRowSubComponent={({ row }) => (
-              <UserPermissions row={row} />
-            )}
-          >
-            <TableControlBar onFilterChange={setColumnsWithFiltersApplied} />
-            <DataTable.Table />
-            <TableFooter />
-          </DataTable>
+        <div className="bg-light-200 py-4">
+          <Container className="p-4">
+            <DataTable
+              isPaginated
+              isFilterable
+              isSortable
+              manualPagination
+              data={rowsWithPermissions}
+              manualFilters
+              manualSortBy
+              fetchData={fetchData}
+              itemCount={count}
+              pageCount={pageCount}
+              initialState={{ pageSize: TABLE_DEFAULT_PAGE_SIZE }}
+              additionalColumns={additionalColumns}
+              columns={columns}
+              isLoading={isLoadingUserAssignments}
+              isExpandable
+              renderRowSubComponent={({ row }) => (
+                <UserPermissions row={row} />
+              )}
+            >
+              <TableControlBar onFilterChange={setColumnsWithFiltersApplied} />
+              <DataTable.Table />
+              <TableFooter />
+            </DataTable>
 
-        </Container>
+          </Container>
+        </div>
       </AuthZLayout>
     </div>
   );

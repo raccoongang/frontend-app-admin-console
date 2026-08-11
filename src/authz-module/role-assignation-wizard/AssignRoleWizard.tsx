@@ -160,7 +160,7 @@ const AssignRoleWizard = ({
     <Stepper activeKey={activeStep}>
       <Stepper.Header className="bg-info-100" />
 
-      <div className="bg-light-200 p-5">
+      <div className="p-4">
         <Stepper.Step
           eventKey={STEPS.SELECT_USERS_AND_ROLE}
           title={intl.formatMessage(messages['wizard.step.selectUsersAndRole.title'])}
@@ -193,7 +193,7 @@ const AssignRoleWizard = ({
         </Stepper.Step>
       </div>
 
-      <div className="p-5">
+      <div className="p-4">
         <Stepper.ActionRow eventKey={STEPS.SELECT_USERS_AND_ROLE}>
           <Button variant="outline-primary" onClick={handleClose}>
             {intl.formatMessage(messages['wizard.button.cancel'])}

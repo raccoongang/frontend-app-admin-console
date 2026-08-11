@@ -12,7 +12,7 @@ interface AuthZLayoutProps extends AuthZTitleProps {
 }
 
 const AuthZLayout = ({ children, context, ...props }: AuthZLayoutProps) => (
-  <>
+  <div className="authz-layout">
     <StudioHeader
       number={context?.id || null}
       org={context?.org || null}
@@ -21,8 +21,7 @@ const AuthZLayout = ({ children, context, ...props }: AuthZLayoutProps) => (
     />
     <AuthZTitle {...props} />
     {children}
-  </>
-
+  </div>
 );
 
 export default AuthZLayout;
