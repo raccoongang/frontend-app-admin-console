@@ -41,20 +41,22 @@ const AuthZTitle = ({
   activeLabel, navLinks = [], pageTitle, pageSubtitle, actions = [],
 }: AuthZTitleProps) => {
   const isDesktop = useMediaQuery({ minWidth: breakpoints.large.minWidth });
+  const isMobile = useMediaQuery({ maxWidth: breakpoints.small.maxWidth });
   return (
     <Container className="p-4">
       <Breadcrumb
         linkAs={Link}
         links={navLinks}
         activeLabel={activeLabel}
+        isMobile={isMobile && navLinks.length > 0}
       />
       <Row className="mt-4">
         <Col xs={12} md={7} className="mb-4">
-          <div className="d-flex align-items-center flex-column-sm">
-            <h2 className="text-primary mb-0">{pageTitle}</h2>
+          <div className="d-flex align-items-center flex-column-sm flex-wrap">
+            <h2 className="text-primary mb-0 text-break">{pageTitle}</h2>
             {typeof pageSubtitle === 'string'
-              ? <> { pageSubtitle !== '' && <hr className="mx-lg-3" /> }<h3 className="mb-0 py-2 font-weight-light text-gray-700">{pageSubtitle}</h3></>
-              : <>{ pageSubtitle !== '' && <hr className="mx-lg-3" /> } <div className="mb-0">{pageSubtitle}</div></>}
+              ? <> { pageSubtitle !== '' && <hr className="mx-lg-3" /> }<h3 className="mb-0 py-2 font-weight-light text-gray-700 text-break">{pageSubtitle}</h3></>
+              : <>{ pageSubtitle !== '' && <hr className="mx-lg-3" /> } <div className="mb-0 text-break">{pageSubtitle}</div></>}
 
           </div>
         </Col>

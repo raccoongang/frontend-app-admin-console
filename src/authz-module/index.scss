@@ -89,8 +89,15 @@
       line-height: 24px;
     }
   }
-  
-  @media(--pgn-size-breakpoint-max-width-sm){
+
+  @media (--pgn-size-breakpoint-max-width-xs) {
+    .permission-table-scroll {
+      overflow: auto;
+      max-height: 80vh;
+    }
+  }
+
+  @media(--pgn-size-breakpoint-max-width-md){
     .flex-column-sm {
       flex-direction: column;
     }
@@ -145,12 +152,20 @@
   }
 }
 
+.scope-filters {
+  gap: 0.625rem;
+}
+
 .scope-list {
   max-height: 500px;
 }
 
 .scope-search-input {
   width: 18.75rem; // 300px
+
+  @media(--pgn-size-breakpoint-max-width-sm) {
+    width: 100%;
+  }
 }
 
 .toast-container {

@@ -33,7 +33,7 @@ const ScopeFilterBar = ({
   return (
     <>
       <div className="d-flex align-items-center justify-content-between gap-3 mb-2 flex-wrap">
-        <div className="d-flex align-items-center gap-3">
+        <div className="d-flex align-items-center flex-wrap scope-filters">
           <div className="scope-search-input">
             <Form.Group controlId="scope-search" className="mb-0">
               <Form.Control
