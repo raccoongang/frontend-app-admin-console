@@ -16,6 +16,8 @@ const SearchFilter = ({
   <Form.Group className="m-0">
     <Form.Control
       className="mw-xs mr-0"
+      controlClassName="text-truncate"
+      htmlSize={placeholder.length}
       trailingElement={<Icon src={Search} />}
       value={filterValue || ''}
       type="text"
