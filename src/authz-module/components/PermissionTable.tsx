@@ -18,7 +18,7 @@ type PermissionTableProps = {
 const PermissionTable = ({ permissionsTable, roles, title }: PermissionTableProps) => {
   const { formatMessage } = useIntl();
   return (
-    <Card>
+    <Card className="permission-table-scroll">
       <table className="permission-table w-100">
         <thead>
           <tr>
@@ -28,7 +28,7 @@ const PermissionTable = ({ permissionsTable, roles, title }: PermissionTableProp
             {roles.map(role => (
               <th
                 key={role.name}
-                className={`text-center py-3 sticky-top bg-white ${role.disabled ? 'text-gray-200' : ''}`}
+                className={`text-center px-2 py-3 sticky-top bg-white ${role.disabled ? 'text-gray-200' : ''}`}
               >
                 {role.disabled ? (
                   <OverlayTrigger
